@@ -21,6 +21,7 @@
 		<module>WebService-ClientEJB</module>
 		<module>WebService-ProjetWeb</module>
 		<module>WebService-ProjetWeb-Client</module>
+		<module>WebService-WebJava</module>
 	</modules>
 
 </project>
