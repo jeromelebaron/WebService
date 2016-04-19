@@ -9,6 +9,8 @@
 	<properties>
 		<log4j.version>1.2.16</log4j.version>
 		<log4jextras.version>1.0</log4jextras.version>
+		<java.version>1.7</java.version>
+		<javaee.version>6.0</javaee.version>
 	</properties>
 
 	<dependencyManagement>
@@ -25,6 +27,12 @@
 				<version>${log4jextras.version}</version>
 				<scope>compile</scope>
 			</dependency>
+			<dependency>
+				<groupId>javax</groupId>
+				<artifactId>javaee-api</artifactId>
+				<version>${javaee.version}</version>
+				<scope>provided</scope>
+			</dependency>
 		</dependencies>
 	</dependencyManagement>
 
@@ -39,7 +47,7 @@
 
 	<build>
 		<filters>
-			<filter>../WebService-Reactor/src/main/filters/filter-${env}.properties</filter>
+			<filter>../src/filters/filter-${env}.properties</filter>
 		</filters>
 		<plugins>
 			<plugin>
@@ -48,9 +56,9 @@
 				<version>2.0.2</version>
 				<configuration>
 					<source>
-						1.7
+						${java.version}
 					</source>
-					<target>1.7</target>
+					<target>${java.version}</target>
 				</configuration>
 			</plugin>
 		</plugins>
