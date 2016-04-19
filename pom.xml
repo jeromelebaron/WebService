@@ -20,6 +20,7 @@
 		<module>WebService-JaxWS-EJB</module>
 		<module>WebService-ClientEJB</module>
 		<module>WebService-ProjetWeb</module>
+		<module>WebService-ProjetWeb-Client</module>
 	</modules>
 
 </project>
