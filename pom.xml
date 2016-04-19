@@ -18,6 +18,7 @@
 		<module>WebService-ClientAxis2</module>
 		<module>WebService-ClientAxis3</module>
 		<module>WebService-JaxWS-EJB</module>
+		<module>WebService-ClientEJB</module>
 	</modules>
 
 </project>
