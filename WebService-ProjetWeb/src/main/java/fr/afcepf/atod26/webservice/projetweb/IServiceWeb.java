@@ -8,7 +8,7 @@ import javax.jws.soap.SOAPBinding;
 import javax.jws.soap.SOAPBinding.Style;
 
 @WebService(targetNamespace = "http://lebaronjerome.atod26.afcepf.fr")
-@SOAPBinding(style = Style.RPC)
+@SOAPBinding(style = Style.DOCUMENT)
 public interface IServiceWeb {
 
 	@WebMethod(operationName = "ajouter")
