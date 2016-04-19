@@ -38,10 +38,13 @@
 
 	<profiles>
 		<profile>
-			<id>dev</id>
+			<id>afcepf</id>
 			<properties>
-				<env>dev</env>
+				<env>afcepf</env>
 			</properties>
+			<activation>
+				<activeByDefault>true</activeByDefault>
+			</activation>
 		</profile>
 	</profiles>
 
@@ -63,6 +66,5 @@
 			</plugin>
 		</plugins>
 	</build>
-
 
 </project>

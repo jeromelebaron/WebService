@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?><!-- Use this file to deploy some handlers/chains and services      --><!-- Two ways to do this:                                           --><!--   java org.apache.axis.client.AdminClient deploy.wsdd          --><!--      after the axis server is running                          --><!-- or                                                             --><!--   java org.apache.axis.utils.Admin client|server deploy.wsdd   --><!--      from the same directory that the Axis engine runs         --><deployment xmlns="http://xml.apache.org/axis/wsdd/" xmlns:java="http://xml.apache.org/axis/wsdd/providers/java">
+
+  <!-- Services from MonServiceimplService WSDL service -->
+
+  <service name="MonServiceimpl" provider="java:RPC" style="wrapped" use="literal">
+      <parameter name="wsdlTargetNamespace" value="http://impl.webservice.atod26.afcepf.fr"/>
+      <parameter name="wsdlServiceElement" value="MonServiceimplService"/>
+      <parameter name="schemaQualified" value="http://impl.webservice.atod26.afcepf.fr"/>
+      <parameter name="wsdlServicePort" value="MonServiceimpl"/>
+      <parameter name="className" value="fr.afcepf.atod26.webservice.impl.MonServiceimpl"/>
+      <parameter name="wsdlPortType" value="MonServiceimpl"/>
+      <parameter name="typeMappingVersion" value="1.2"/>
+      <operation xmlns:operNS="http://impl.webservice.atod26.afcepf.fr" xmlns:retNS="http://impl.webservice.atod26.afcepf.fr" xmlns:rtns="http://www.w3.org/2001/XMLSchema" name="add" qname="operNS:add" returnQName="retNS:addReturn" returnType="rtns:int" soapAction="">
+        <parameter xmlns:pns="http://impl.webservice.atod26.afcepf.fr" xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="pns:premier" type="tns:int"/>
+        <parameter xmlns:pns="http://impl.webservice.atod26.afcepf.fr" xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="pns:deuxieme" type="tns:int"/>
+      </operation>
+      <operation xmlns:operNS="http://impl.webservice.atod26.afcepf.fr" xmlns:retNS="http://impl.webservice.atod26.afcepf.fr" xmlns:rtns="http://www.w3.org/2001/XMLSchema" name="puissance" qname="operNS:puissance" returnQName="retNS:puissanceReturn" returnType="rtns:double" soapAction="">
+        <parameter xmlns:pns="http://impl.webservice.atod26.afcepf.fr" xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="pns:premier" type="tns:int"/>
+        <parameter xmlns:pns="http://impl.webservice.atod26.afcepf.fr" xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="pns:deuxieme" type="tns:int"/>
+      </operation>
+      <parameter name="allowedMethods" value="puissance add"/>
+
+  </service>
+</deployment>
