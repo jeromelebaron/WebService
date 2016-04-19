@@ -6,16 +6,17 @@ import fr.afcepf.atod26.webservice.api.IMonService;
 
 public class MonServiceimpl implements IMonService {
 
-
+	private Logger log = Logger.getLogger(MonServiceimpl.class);
+	
 	@Override
 	public int add(final int premier, final int deuxieme) {
-		System.out.println("Methode ajout");
+		log.info("Methode ajout");
 		return premier + deuxieme;
 	}
 
 	@Override
 	public double puissance(final int premier, final int deuxieme) {
-		System.out.println("Methode puissance");
+		log.info("Methode puissance");
 		return premier * deuxieme;
 	}
 
