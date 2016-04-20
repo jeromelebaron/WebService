@@ -3,7 +3,6 @@ package fr.atod26.spring.lebaronjerome;
 
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
-import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlType;
 
 
@@ -17,7 +16,7 @@ import javax.xml.bind.annotation.XmlType;
  *   &lt;complexContent>
  *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
  *       &lt;sequence>
- *         &lt;element name="return" type="{http://www.w3.org/2001/XMLSchema}double"/>
+ *         &lt;element name="resultatDivisionSpring" type="{http://www.w3.org/2001/XMLSchema}double"/>
  *       &lt;/sequence>
  *     &lt;/restriction>
  *   &lt;/complexContent>
@@ -28,27 +27,26 @@ import javax.xml.bind.annotation.XmlType;
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "diviserSpringResponse", propOrder = {
-    "_return"
+    "resultatDivisionSpring"
 })
 public class DiviserSpringResponse {
 
-    @XmlElement(name = "return")
-    protected double _return;
+    protected double resultatDivisionSpring;
 
     /**
-     * Gets the value of the return property.
+     * Gets the value of the resultatDivisionSpring property.
      * 
      */
-    public double getReturn() {
-        return _return;
+    public double getResultatDivisionSpring() {
+        return resultatDivisionSpring;
     }
 
     /**
-     * Sets the value of the return property.
+     * Sets the value of the resultatDivisionSpring property.
      * 
      */
-    public void setReturn(double value) {
-        this._return = value;
+    public void setResultatDivisionSpring(double value) {
+        this.resultatDivisionSpring = value;
     }
 
 }

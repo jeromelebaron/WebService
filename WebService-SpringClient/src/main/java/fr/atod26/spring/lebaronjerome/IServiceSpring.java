@@ -25,13 +25,30 @@ public interface IServiceSpring {
 
     /**
      * 
+     * @param personne
+     * @return
+     *     returns int
+     * @throws PersonneExcecption_Exception
+     */
+    @WebMethod
+    @WebResult(name = "idPersonne", targetNamespace = "")
+    @RequestWrapper(localName = "addPersonne", targetNamespace = "http://lebaronjerome.spring.atod26.fr", className = "fr.atod26.spring.lebaronjerome.AddPersonne")
+    @ResponseWrapper(localName = "addPersonneResponse", targetNamespace = "http://lebaronjerome.spring.atod26.fr", className = "fr.atod26.spring.lebaronjerome.AddPersonneResponse")
+    public int addPersonne(
+        @WebParam(name = "personne", targetNamespace = "")
+        Personne personne)
+        throws PersonneExcecption_Exception
+    ;
+
+    /**
+     * 
      * @param deuxiemeParam
      * @param premierParam
      * @return
      *     returns int
      */
     @WebMethod
-    @WebResult(targetNamespace = "")
+    @WebResult(name = "resultatAdditionSpring", targetNamespace = "")
     @RequestWrapper(localName = "ajouterSpring", targetNamespace = "http://lebaronjerome.spring.atod26.fr", className = "fr.atod26.spring.lebaronjerome.AjouterSpring")
     @ResponseWrapper(localName = "ajouterSpringResponse", targetNamespace = "http://lebaronjerome.spring.atod26.fr", className = "fr.atod26.spring.lebaronjerome.AjouterSpringResponse")
     public int ajouterSpring(
@@ -48,7 +65,7 @@ public interface IServiceSpring {
      *     returns double
      */
     @WebMethod
-    @WebResult(targetNamespace = "")
+    @WebResult(name = "resultatDivisionSpring", targetNamespace = "")
     @RequestWrapper(localName = "diviserSpring", targetNamespace = "http://lebaronjerome.spring.atod26.fr", className = "fr.atod26.spring.lebaronjerome.DiviserSpring")
     @ResponseWrapper(localName = "diviserSpringResponse", targetNamespace = "http://lebaronjerome.spring.atod26.fr", className = "fr.atod26.spring.lebaronjerome.DiviserSpringResponse")
     public double diviserSpring(
@@ -56,5 +73,16 @@ public interface IServiceSpring {
         int premierParam,
         @WebParam(name = "deuxiemeParam", targetNamespace = "")
         int deuxiemeParam);
+
+    /**
+     * 
+     * @return
+     *     returns fr.atod26.spring.lebaronjerome.Personne
+     */
+    @WebMethod
+    @WebResult(name = "unePersonne", targetNamespace = "")
+    @RequestWrapper(localName = "recupererPersonne", targetNamespace = "http://lebaronjerome.spring.atod26.fr", className = "fr.atod26.spring.lebaronjerome.RecupererPersonne")
+    @ResponseWrapper(localName = "recupererPersonneResponse", targetNamespace = "http://lebaronjerome.spring.atod26.fr", className = "fr.atod26.spring.lebaronjerome.RecupererPersonneResponse")
+    public Personne recupererPersonne();
 
 }
