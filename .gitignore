@@ -3,3 +3,4 @@
 *.classpath
 WebService-Web/target/
 WebService-WebJava/target/
+WebService-Spring/target/
