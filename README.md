@@ -1,4 +1,4 @@
-# WebService
+#WebService
 
 Différents projets qui rassemblent les technologies que l'on peut utiliser pour mettre en place les webservices en Java.
 
@@ -15,7 +15,8 @@ De même pour déclarer la servlet CXF.
 ###Déploiement sur les serveurs :
 
 - Tomcat :
-	- WebService-Web	
+	- WebService-Web
+	- WebService-SpringCXF
 - JBoss
 	- WebService-JaxWS-EJB
 	- WebService-ProjetWeb
