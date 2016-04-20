@@ -1,124 +1,54 @@
 #WebService
 
-Différents projets qui rassemblent les technologies que l'on peut utiliser pour mettre en place les webservices en Java.
+Ce dépot rassemble différents projets qui rassemblent les technologies que l'on peut utiliser pour mettre en place les webservices en Java.
 
-sur la classe implementation, on click droit et on choisit webservice puis create webservice, tu choisie deploy service puis start service
-
-on peut taper le lien de service qui se trouve dans la balise location dans le fichier wsdl : http://localhost:8080/PremierServiceAxis/services/PremierServiceImpl puis on ajoute à ce lien le mot  "?wsdl"
+Sur une classe d'implementation que l'on veut transformer en webservice, on click droit et on choisit `webservice` puis` create webservice`. On choisi le mode `deploy` puis on démarre le service grâce à `start service`.  
+On peut ensuite taper le lien du service qui se trouve dans la balise location dans le fichier wsdl : `http://localhost:8080/PremierServiceAxis/services/PremierServiceImpl`. Pour accéder à la description du web service, on ajoute à ce lien le mot `?wsdl`.
 
 UDDI Register : un simple registre avec DNS qui centralise tous les webservices dans une entreprise
 
-on a utilisé windows power shell :
+On peut tester les webservices avec windows power shell.
+Il faut taper dans  la ligne de commande : 
+	
+	$ws = WebServiceProxy -uri http://localhost:8080/PremierServiceAxis/services/PremierServiceImpl?wsdl
 
-    taper la ligne de commande : $ws = WebServiceProxy -uri http://localhost:8080/PremierServiceAxis/services/PremierServiceImpl?wsdl
+Ensuite pour appeler une fonction et l'executer par le webservice : 
 
-    Appeler les fonction et l'executer par le webservice : $ws.add(15,12), entrer
+	$ws.add(15,12)
 
-on a utilisé l'outil SoapUI 5.1.3:
+On peut aussi utiliser l'outil SoapUI 5.1.3 :
 
-    new Soap Project: on entre le lien de notre service : http://localhost:8080/PremierServiceAxis/services/PremierServiceImpl?wsdl
-    dans remplit les champs des paramètres des fonctions par des valeurs
-    on clique sur le triangle vert pour voir le résultat
+- new Soap Project, on entre le lien de notre service : `http://localhost:8080/PremierServiceAxis/services/PremierServiceImpl?wsdl`
+- On peut ensuite remplir les champs des paramètres des fonctions par des valeurs
+- On clique sur le triangle vert pour voir le résultat
 
 Avec Axis aussi :
 
-    on a crée un nouveau projet client .jar :
-    on a cliquer droit sur le dossier : src/main/java
-    on a choisit new ->other-> client webservice-> on donné le lien de wsdl
-    il a générer toutes les classes du proxy
-    on a utilisé le proxy pour appeler les fonctions de services
+- on a crée un nouveau projet client .jar :
+- on a cliqué droit sur le dossier : src/main/java
+- on a choisit new -> other -> client webservice -> on donné le lien de wsdl
+- il a généré toutes les classes du proxy
+- on a utilisé le proxy pour appeler les fonctions de services
 
 Avec wsimport :
-pour generer le proxy cmd: ligne de command : on a accédé au dossier bin de dossier java jdk ou se trouve ws-import
-on a crée un nouveau dossier dans lequel on va génerer les classes du proxy
-puis on a taper la ligne de commande : wsimport -s lien de nouveau dossier  lien wsdl
-exemple
 
-creation d'un ejb + webservice
+- pour generer le proxy cmd : ligne de commande : on accède au dossier `bin` du dossier où est installé le java jdk ou se trouve ws-import
+- on crée un nouveau dossier dans lequel on va génerer les classes du proxy
+- on tape la ligne de commande : `wsimport -s lien-de-nouveau-dossier lien-wsdl`
 
--creation d'un projet ejb (packaging : ejb)
--configuration du pom en ajoutant les lignes suivantes :
-<dependencies>
-        <dependency>
-            <groupId>javax</groupId>
-            <artifactId>javaee-api</artifactId>
-            <version>6.0</version>
-            <scope>provided</scope>
-        </dependency>
-    </dependencies>
-    <build>
-        <plugins>
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-compiler-plugin</artifactId>
-                <version>2.0.2</version>
-                <configuration>
-                    <source>1.7</source>
-                    <target>1.7</target>
-                </configuration>
-            </plugin>
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-ejb-plugin</artifactId>
-                <version>2.3</version>
-                <configuration>
-                    <ejbVersion>3.0</ejbVersion>
-                </configuration>
-            </plugin>
-        </plugins>
-    </build>
-creation d'une interface qui represente le service en ajoutant des notation ejb et web service : voila un exemple
-@WebService(targetNamespace = "http://ws.ejb.afcepf.fr")
-public interface IEjbService {
-    @WebMethod(operationName="ajouter")
-    @WebResult(name="retourAjout")
-int add(@WebParam(name="paramI")int i, @WebParam(name="paramj") int j);
-    @WebMethod(operationName="puissance")
-    @WebResult(name="retourPow")
-double pow(@WebParam(name="paramA") double a, @WebParam(name="paramB")double b);
-}
+creation d'un ejb + webservice :
 
-creation d'une classe qui implement les opération du service en ajoutant des notations: voila un exemple
-@Remote(IEjbService.class)
-@Singleton
-@WebService(endpointInterface = "fr.afcepf.al26.ws.api.IEjbService", targetNamespace = "http://ws.ejb.afcepf.fr", serviceName = "operationService")
-public class EjbServiceImpl implements IEjbService {
+- creation d'un projet ejb (packaging : ejb)
+- configuration du pom en ajoutant les lignes suivantes :
 
-    @Override
-    public int add(int i, int j) {
-        return i + j;
-    }
 
-    @Override
-    public double pow(double a, double b) {
-        return Math.pow(a, b);
-    }
+On déploie ensuite le projet ejb sur le serveur jboss et (n'oublie de modifier les ports sur standalone.xml) pour éviter le conflit avec le serveur tomcat
 
-}
+- copier l'adresse de service pour voir le wsdl sur le navigateur
+- puis generer le proxy avec wsimport en une ligne de commande
+- copier les classes de projet et les coller dans `java/src/main` d'un nouveau projet client
 
-deployer le projet ejb sur le serveur jboss et n'oublie de modifier les ports sur standalone.xml pour gérer le conflit avec le serveur tomcat
-- copie l'adresse de service pour voir le wsdl sur le navigateur
-- puis genere le proxy avec wsimport en une ligne de commande
-- copie les classes de projet et les coller dans java/src/main d'un nouveau projet client
-- tester avec :
-public class TestCallWs {
-    private static Logger log = Logger.getLogger(TestCallWs.class);
-    private TestCallWs(){
-
-    }
-
-    public static void main(String[] args) {
-            OperationService service = new OperationService();
-            IEjbService proxy = service.getEjbServiceImplPort();
-            log.info(proxy.ajouter(11, 15));
-            log.info(proxy.puissance(2, 3));
-            log.info("fin de test");
-    }
-Tomcat n'est pas un standard JEE à part le servlet
-java-eee pour connaitre la version de jee par le web.xml
-pour generer le fichier web.xml : creer un dossier WEb-INF sous webapp et clique droit jee tools generate deployment descrpition
-
-avec un style SoapBuilding RPC, le proxy n'a pas de classe pour chaque opération , on aura deux classe : une pour l'interface et l'autre pour l'implementation.
+Avec un style SoapBuilding `RPC`, le proxy n'a pas de classe pour chaque opération, on aura deux classes : une pour l'interface et l'autre pour l'implementation.
 
 ##Spring et CXF
 
