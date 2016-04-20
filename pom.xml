@@ -22,6 +22,8 @@
 		<module>WebService-ProjetWeb</module>
 		<module>WebService-ProjetWeb-Client</module>
 		<module>WebService-WebJava</module>
+		<module>WebService-Spring</module>
+		<module>WebService-SpringClient</module>
 	</modules>
 
 </project>
