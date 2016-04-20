@@ -12,7 +12,7 @@ public interface IServiceSpring {
 			@WebParam(name = "deuxiemeParam") final int deuxieme);
 
 	@WebMethod(operationName = "diviserSpring")
-	int division(@WebParam(name = "premierParam") final int premier,
+	double division(@WebParam(name = "premierParam") final int premier,
 			@WebParam(name = "deuxiemeParam") final int deuxieme);
 
 }
