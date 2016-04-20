@@ -28,12 +28,12 @@ public class ObjectFactory {
     private final static QName _RecupererPersonneResponse_QNAME = new QName("http://lebaronjerome.spring.atod26.fr", "recupererPersonneResponse");
     private final static QName _Personne_QNAME = new QName("http://lebaronjerome.spring.atod26.fr", "personne");
     private final static QName _AjouterSpringResponse_QNAME = new QName("http://lebaronjerome.spring.atod26.fr", "ajouterSpringResponse");
-    private final static QName _PersonneExcecption_QNAME = new QName("http://lebaronjerome.spring.atod26.fr", "PersonneExcecption");
     private final static QName _DiviserSpring_QNAME = new QName("http://lebaronjerome.spring.atod26.fr", "diviserSpring");
     private final static QName _DiviserSpringResponse_QNAME = new QName("http://lebaronjerome.spring.atod26.fr", "diviserSpringResponse");
     private final static QName _AjouterSpring_QNAME = new QName("http://lebaronjerome.spring.atod26.fr", "ajouterSpring");
     private final static QName _RecupererPersonne_QNAME = new QName("http://lebaronjerome.spring.atod26.fr", "recupererPersonne");
     private final static QName _AddPersonne_QNAME = new QName("http://lebaronjerome.spring.atod26.fr", "addPersonne");
+    private final static QName _PersonneException_QNAME = new QName("http://lebaronjerome.spring.atod26.fr", "PersonneException");
 
     /**
      * Create a new ObjectFactory that can be used to create new instances of schema derived classes for package: fr.atod26.spring.lebaronjerome
@@ -56,14 +56,6 @@ public class ObjectFactory {
      */
     public DiviserSpring createDiviserSpring() {
         return new DiviserSpring();
-    }
-
-    /**
-     * Create an instance of {@link PersonneExcecption }
-     * 
-     */
-    public PersonneExcecption createPersonneExcecption() {
-        return new PersonneExcecption();
     }
 
     /**
@@ -96,6 +88,14 @@ public class ObjectFactory {
      */
     public AddPersonneResponse createAddPersonneResponse() {
         return new AddPersonneResponse();
+    }
+
+    /**
+     * Create an instance of {@link PersonneException }
+     * 
+     */
+    public PersonneException createPersonneException() {
+        return new PersonneException();
     }
 
     /**
@@ -159,15 +159,6 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link PersonneExcecption }{@code >}}
-     * 
-     */
-    @XmlElementDecl(namespace = "http://lebaronjerome.spring.atod26.fr", name = "PersonneExcecption")
-    public JAXBElement<PersonneExcecption> createPersonneExcecption(PersonneExcecption value) {
-        return new JAXBElement<PersonneExcecption>(_PersonneExcecption_QNAME, PersonneExcecption.class, null, value);
-    }
-
-    /**
      * Create an instance of {@link JAXBElement }{@code <}{@link DiviserSpring }{@code >}}
      * 
      */
@@ -210,6 +201,15 @@ public class ObjectFactory {
     @XmlElementDecl(namespace = "http://lebaronjerome.spring.atod26.fr", name = "addPersonne")
     public JAXBElement<AddPersonne> createAddPersonne(AddPersonne value) {
         return new JAXBElement<AddPersonne>(_AddPersonne_QNAME, AddPersonne.class, null, value);
+    }
+
+    /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link PersonneException }{@code >}}
+     * 
+     */
+    @XmlElementDecl(namespace = "http://lebaronjerome.spring.atod26.fr", name = "PersonneException")
+    public JAXBElement<PersonneException> createPersonneException(PersonneException value) {
+        return new JAXBElement<PersonneException>(_PersonneException_QNAME, PersonneException.class, null, value);
     }
 
 }

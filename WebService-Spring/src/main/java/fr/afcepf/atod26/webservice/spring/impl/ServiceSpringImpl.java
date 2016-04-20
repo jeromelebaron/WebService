@@ -6,7 +6,7 @@ import org.apache.log4j.Logger;
 
 import fr.afcepf.atod26.webservice.spring.api.IServiceSpring;
 import fr.afcepf.atod26.webservice.spring.entity.Personne;
-import fr.afcepf.atod26.webservice.spring.exception.PersonneExcecption;
+import fr.afcepf.atod26.webservice.spring.exception.PersonneException;
 
 @WebService(targetNamespace = "http://lebaronjerome.spring.atod26.fr", endpointInterface = "fr.afcepf.atod26.webservice.spring.api.IServiceSpring", serviceName = "serviceSpringCXF")
 public class ServiceSpringImpl implements IServiceSpring {
@@ -32,10 +32,10 @@ public class ServiceSpringImpl implements IServiceSpring {
 	}
 
 	@Override
-	public int ajouterPersonne(Personne personne) throws PersonneExcecption {
+	public int ajouterPersonne(Personne personne) throws PersonneException {
 		log.info("Ajout d'une personne");
 		if (personne.getId() == 1) {
-			throw new PersonneExcecption();
+			throw new PersonneException();
 		}
 		return 3;
 	}

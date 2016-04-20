@@ -28,7 +28,7 @@ public interface IServiceSpring {
      * @param personne
      * @return
      *     returns int
-     * @throws PersonneExcecption_Exception
+     * @throws PersonneException_Exception
      */
     @WebMethod
     @WebResult(name = "idPersonne", targetNamespace = "")
@@ -37,7 +37,7 @@ public interface IServiceSpring {
     public int addPersonne(
         @WebParam(name = "personne", targetNamespace = "")
         Personne personne)
-        throws PersonneExcecption_Exception
+        throws PersonneException_Exception
     ;
 
     /**

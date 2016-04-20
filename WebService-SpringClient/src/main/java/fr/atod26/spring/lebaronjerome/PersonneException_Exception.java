@@ -10,8 +10,8 @@ import javax.xml.ws.WebFault;
  * Generated source version: 2.2
  * 
  */
-@WebFault(name = "PersonneExcecption", targetNamespace = "http://lebaronjerome.spring.atod26.fr")
-public class PersonneExcecption_Exception
+@WebFault(name = "PersonneException", targetNamespace = "http://lebaronjerome.spring.atod26.fr")
+public class PersonneException_Exception
     extends Exception
 {
 
@@ -19,14 +19,14 @@ public class PersonneExcecption_Exception
      * Java type that goes as soapenv:Fault detail element.
      * 
      */
-    private PersonneExcecption faultInfo;
+    private PersonneException faultInfo;
 
     /**
      * 
      * @param message
      * @param faultInfo
      */
-    public PersonneExcecption_Exception(String message, PersonneExcecption faultInfo) {
+    public PersonneException_Exception(String message, PersonneException faultInfo) {
         super(message);
         this.faultInfo = faultInfo;
     }
@@ -37,7 +37,7 @@ public class PersonneExcecption_Exception
      * @param faultInfo
      * @param cause
      */
-    public PersonneExcecption_Exception(String message, PersonneExcecption faultInfo, Throwable cause) {
+    public PersonneException_Exception(String message, PersonneException faultInfo, Throwable cause) {
         super(message, cause);
         this.faultInfo = faultInfo;
     }
@@ -45,9 +45,9 @@ public class PersonneExcecption_Exception
     /**
      * 
      * @return
-     *     returns fault bean: fr.atod26.spring.lebaronjerome.PersonneExcecption
+     *     returns fault bean: fr.atod26.spring.lebaronjerome.PersonneException
      */
-    public PersonneExcecption getFaultInfo() {
+    public PersonneException getFaultInfo() {
         return faultInfo;
     }
 

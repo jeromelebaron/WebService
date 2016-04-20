@@ -4,7 +4,7 @@ import org.apache.log4j.Logger;
 
 import fr.atod26.spring.lebaronjerome.IServiceSpring;
 import fr.atod26.spring.lebaronjerome.Personne;
-import fr.atod26.spring.lebaronjerome.PersonneExcecption_Exception;
+import fr.atod26.spring.lebaronjerome.PersonneException_Exception;
 import fr.atod26.spring.lebaronjerome.ServiceSpringCXF;
 
 public class TestSpringService {
@@ -23,7 +23,7 @@ public class TestSpringService {
 		personneException.setId(1);
 		try {
 			prox.addPersonne(personneException);
-		} catch (PersonneExcecption_Exception e) {
+		} catch (PersonneException_Exception e) {
 			log.info("Exception levée");
 			log.error(e);
 		}

@@ -1,6 +1,6 @@
 package fr.afcepf.atod26.webservice.spring.exception;
 
-public class PersonneExcecption extends Exception {
+public class PersonneException extends Exception {
 
 	/**
 	 * 

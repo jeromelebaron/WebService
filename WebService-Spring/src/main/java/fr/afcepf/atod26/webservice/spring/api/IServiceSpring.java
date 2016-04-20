@@ -6,7 +6,7 @@ import javax.jws.WebResult;
 import javax.jws.WebService;
 
 import fr.afcepf.atod26.webservice.spring.entity.Personne;
-import fr.afcepf.atod26.webservice.spring.exception.PersonneExcecption;
+import fr.afcepf.atod26.webservice.spring.exception.PersonneException;
 
 @WebService(targetNamespace = "http://lebaronjerome.spring.atod26.fr")
 public interface IServiceSpring {
@@ -27,6 +27,6 @@ public interface IServiceSpring {
 
 	@WebMethod(operationName = "addPersonne")
 	@WebResult(name = "idPersonne")
-	int ajouterPersonne(@WebParam(name = "personne") Personne personne) throws PersonneExcecption;
+	int ajouterPersonne(@WebParam(name = "personne") Personne personne) throws PersonneException;
 
 }
