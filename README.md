@@ -9,6 +9,9 @@ Dépendances nécessaires :
 - Spring-Web
 - CXF (servlet)
 
+Il faut bien penser à ajouter les fichiers de configuration du context de Spring avec la déclaration des beans et les listener dans le fichier `web.xml`.  
+De même pour déclarer la servlet CXF.
+
 ###Déploiement sur les serveurs :
 
 - Tomcat :
