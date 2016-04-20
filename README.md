@@ -10,7 +10,7 @@ Dépendances nécessaires :
 - CXF (servlet)
 
 Il faut bien penser à ajouter les fichiers de configuration du context de Spring avec la déclaration des beans et les listener dans le fichier `web.xml`.  
-De même pour déclarer la servlet CXF.
+De même pour déclarer la servlet CXF.  
 URL pour WSDL : `http://localhost:8080/WebService-SpringCXF/services/springService?wsdl`
 
 ###Déploiement sur les serveurs :
